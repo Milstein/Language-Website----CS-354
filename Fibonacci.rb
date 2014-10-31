@@ -34,6 +34,8 @@ def fibonacciIterative(n)
 end
 
 # get user input
+puts "This program will find F(n) of the Fibonacci sequence,"
+puts "assuming that F(0) = 0 and F(1) = 1."
 puts "n = ?"
 n = gets.to_i
 
