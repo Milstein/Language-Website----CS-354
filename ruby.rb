@@ -1,5 +1,10 @@
 #!/usr/bin/env ruby
 
+## Demo general Ruby file structure with iteration
+##
+## Milson Munakami
+## http://milson.com.np
+
 class MegaGreeter
 	attr_accessor :names
 
