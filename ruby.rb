@@ -3,7 +3,7 @@
 ## Demo general Ruby file structure with iteration
 ##
 ## Milson Munakami
-## http://milson.com.np
+## http://milstein.me
 
 class MegaGreeter
 	attr_accessor :names
