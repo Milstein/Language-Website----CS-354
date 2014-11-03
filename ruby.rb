@@ -45,7 +45,7 @@ if __FILE__ == $0
 	mg.say_hi
 	mg.say_bye
 
-	mg.names = ["Jimmy", "Arther", "Ning"]
+	mg.names = ["Aaron", "Zhenyu", "Milson", "Said", "Brent"]
 	mg.say_hi
 	mg.say_bye
 
