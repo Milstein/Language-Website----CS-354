@@ -13,3 +13,15 @@ shad.shift
 print shad
 shad.unshift("Milson")
 print shad
+print "++++++++++++++++++\n"
+
+la = []
+la[3] = "Prolog"
+la[4] = "AWK"
+la[5] = "C#"
+print la.length
+print "\n"
+la.each {|i| print i, "\n"}
+print "++++++++++++++++++\n"
+la[1] = "Scheme"
+la.each {|i| print i, "\n"}
