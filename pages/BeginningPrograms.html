@@ -1,85 +1,86 @@
 <html>
-	<head>
-		<title>Beginner Examples</title>
-		<link rel="stylesheet" type="text/css" href="../css/main.css">
-		<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
-		<link href='http://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
-		<link rel="icon" href="img/favicon.ico" type="image/x-icon" />
-	</head>
-	
-	<body>
-	
-	<div class="banner">
-	
-	<div class="banner_title">
-		<h1 class="banner_title_text">The Ruby Programming Language</h1>
-	</div>
-	
-	</div>
-	
-	<div class="nav_menu">
-	<ul>
-		<li><a href="index.html">About Ruby</a></li>
-		<li class="curr"><a href="BeginningPrograms.html">Beginner Examples</a></li>
-		<li><a href="Comparisons.html">Comparisons</a></li>
-		<li><a href="Documentation.html">Documentation</a></li>
-	</ul>
-	</div>
-		<div class="container-fluid" style="padding-top:10px;">
-		<div class="page-header">
-			<h1>
-				Hello World!
-			</h1>
-		</div>
-		<div class="row">
-			<div class="col-md-6">
-		<pre>#!/bin/ruby
+<head>
+    <title>Beginner Examples</title>
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+    <script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.snippet.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/jquery.snippet.css" />
+    <script>
+        $(document).ready(function () {
+            $("pre.htmlCode").snippet("ruby", { style: "random", transparent: false, showNum: false, collapse:true, startCollapsed:false });
+        });
+    </script>
+</head>
+<body>
 
-class HelloWorld
+    <div class="banner">
 
-	def initialize(str)
-		@str = str
-	end
+        <div class="banner_title">
+            <h1 class="banner_title_text">The Ruby Programming Language</h1>
+        </div>
 
-	def sayHello
-		puts "#{@str}"
-	end
+    </div>
 
-end
+    <div class="nav_menu">
+        <ul>
+            <li><a href="index.html">About Ruby</a></li>
+            <li class="curr"><a href="BeginningPrograms.html">Beginner Examples</a></li>
+            <li><a href="Comparisons.html">Comparisons</a></li>
+            <li><a href="Documentation.html">Documentation</a></li>
+        </ul>
+    </div>
+    <div class="container-fluid" style="padding-top:10px;">
+        <div class="page-header">
+            <h1>
+                Hello World!
+            </h1>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <pre class="htmlCode">
+                        #!/bin/ruby
+                        class HelloWorld
+	                        def initialize(str)
+		                        @str = str
+	                        end
+	                        def sayHello
+		                        puts "#{@str}"
+	                        end
+                        end
+                        hello = HelloWorld.new("Hello, world!")
+                        hello.sayHello
+		        </pre>
+            </div>
+        </div>
 
-hello = HelloWorld.new("Hello, world!")
-hello.sayHello
-		</pre>
-		</div>
-			</div>
-			
-			<p>
-			<li><a href="HelloWorld.html" target="_blank">Source Code to HelloWorld.rb</a></li>
-			</p>
-		</div>
-	<div>
-	
-			<div class = "row">
-			<div class = "col-md-4"></div>
-				<div class="col-md-4">
-					<ul class="pagination">
-					  <li class = "active"><a href="hello-world.html">1</a></li>
-					  <li><a href="MoreExamples.html">2</a></li>
-					  <li><a href="MoreExamples.html">Next</a></li>
-					</ul>
-				</div>
-			<div class = "col-md-4"></div>	
-		</div>	
-	
-	
-	<div class="footer">
-		<hr>
-		<div>
-			<p><em>Created by Team Shad: Aaron Russell, Milson Munakami, Zhenyu Wang, Brent Walter, Said Barrero</em></p>
-			<p><em>CS 354-002 - Programming Languages</em></p>
-		</div>
-		
-	</div>
+        <p>
+            <li><a href="HelloWorld.html" target="_blank">Source Code to HelloWorld.rb</a></li>
+        </p>
+    </div>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <ul class="pagination">
+                <li class="active"><a href="hello-world.html">1</a></li>
+                <li><a href="MoreExamples.html">2</a></li>
+                <li><a href="MoreExamples.html">Next</a></li>
+            </ul>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
 
-	</body>
+
+    <div class="footer">
+        <hr>
+        <div>
+            <p><em>Created by Team Shad: Aaron Russell, Milson Munakami, Zhenyu Wang, Brent Walter, Said Barrero</em></p>
+            <p><em>CS 354-002 - Programming Languages</em></p>
+        </div>
+
+    </div>
+
+</body>
 </html>
