@@ -1,0 +1,237 @@
+I think we need to include :
+- Quick description/history of the language you chose
+  - What it is good for (why would someone use it?)
+    - Is it a scripting language?
+    - Compiled?
+    - Low-level? 
+    - Etc....
+  - An explanation of the scope rules
+  - An explanation of the typing system
+  - An explanation of how functions can be used
+  - A code sample showing how to use recursion
+  - A code sample showing how to use arrays
+  
+  
+Please Review the following descriptions and code that can be applicable to our project work.
+
+I will be not available for next week so if anyone can do my copy paste thing I will appreciate that.
+
+Thanks,
+Milson
+
+
+Ruby
+---
+
+> Ruby is a dynamic, open source programming language with a focus on 
+> simplicity and productivity. It has an elegant syntax that is natural to read > and easy to write.
+> 
+
+https://www.ruby-lang.org/en/
+
+---
+### History
+Ruby is a language of careful balance. Its creator, Yukihiro “Matz” Matsumoto, blended parts of his favorite languages (Perl, Smalltalk, Eiffel, Ada, and Lisp) to form a new language that balanced functional programming with imperative programming.
+
+He has often said that he is “trying to make Ruby natural, not simple,” in a way that mirrors life.
+
+### Explanations
+Ruby is an objected-oriented scripting language with many practical uses and
+perhaps most popular that of a web developing language.
+
+In Ruby a new scope is created when you first define a variable. That variable is then accessible by anything "downstream" of it in the code, until the current scope is exited (by leaving a method or loop, for instance).
+
+Ruby is a dynamically and strongly typed. Dynamic as in the type of a variable
+can be altered at any time, and strong because strict rules must be followed
+concerning the usage of typed variables.
+
+### Code Examples
+
+# Functions
+# Syntax
+
+def functionname(variable)
+   return <value>
+end
+
+# Example
+
+def say_hello(name)
+   var = “Hello, ” + name
+   return var
+end
+
+# Calling a Function
+
+function param1, param2
+puts say_hello("alex")	# puts displays to console
+
+
+# Recursion Example:
+
+def countdown(n)
+  return if n.zero? # base case
+  puts n
+  countdown(n-1)    # getting closer to base case 
+end  
+
+# Array Declaration Example:
+
+array = [ '1', '2', '3' ] # simplest
+Array.new(3, &plus_1) # => [1, 2, 3] # alternative method
+
+
+Ruby
+---
+
+
+> Ruby is a dynamic, reflective, object-oriented, general-purpose programming language. 
+> It was designed and developed in the mid-1990s by Yukihiro "Matz" Matsumoto in Japan.
+>
+> According to its authors, Ruby was influenced by Perl, Smalltalk, Eiffel, Ada, and Lisp.
+> It supports multiple programming paradigms, including functional, object-oriented, and imperative.
+> It also has a dynamic type system and automatic memory management.
+>
+> The scope rules of Ruby are as follows:
+> Variables in Ruby: 
+> 
+> $			A global variable
+> 
+> @			An instance variable
+> 
+> [a-z] 	or _	A local variable
+> 
+> [A-Z]		A constant
+> 
+> @@		A class variable
+>
+> Ruby is dynamically and strongly typed.
+>
+> Functions in Ruby start with the 'def' reserved word followed by functionname(parameter1,parameter2) and have a return value
+> and an end to suggest the end of a function.
+>
+>
+>
+https://www.ruby-lang.org/en/
+---
+### Code Samples
+
+```ruby
+# The following code creates an array of 5 numbers, 1 through 5.
+nums = [1, 2, 3, 4, 5]
+
+# you can loop with .each
+nums.each do |num|
+    puts num
+end
+
+# Ruby has some built in functionality 
+Math.sqrt(9)
+
+# Ruby can create methods
+def h
+  puts "Hello World!"
+end
+
+# Ruby can even create classes and methods can have optional parameters..
+class Greeter
+ def initialize(name = "World")
+     @name = name
+   end
+   def say_hi
+     puts "Hi #{@name}!"
+   end
+   def say_bye
+     puts "Bye #{@name}, come back soon."
+   end
+ end
+
+
+# Recursion in Ruby can be used like other languages that use its
+def countdown(n)
+  return if n.zero? # base case
+  puts n
+  countdown(n-1) 
+end               
+# output:
+countdown(5)
+5
+4
+3
+2
+1
+
+
+Ruby is a dynamic, reflective, object-oriented, general-purpose programming language.  It was developed in the mid 90’s by Yukihiro “Matz” Matsumoto in Japan.  Ruby was influenced by perl, Smalltalk, Eiffel, Ada, and Lisp.  It supports multiple programming paradigms (functional, object-oriented, imperative).  It also has a dynamic type system and automatic memory management
+
+
+
+###What is Ruby good for (why would someone use it):
+
+Ruby is a general purpose dynamic language that is frequently used for scripting.  
+Also follows OOP
+It’s one of the easier languages to learn
+It is mostly used for web apps
+Ruby can be interpreted or compiled
+Ruby is not considered low-level
+
+
+
+###Scope Rules:
+
+lexical, sometimes dynamic
+
+
+
+###Typing System:
+
+duck typing/dynamic
+
+
+
+##How are functions used:
+
+Ruby methods are used to bundle one or more reputable statements into a single unit.  Ruby methods are a set of expressions that return a value.  Methods should be defined before calling them. See below for function examples.
+
+def method_name [( [arg [= default]]...[, * arg [, &expr ]])]
+   expr..
+end
+
+
+def method_name 
+   expr..
+end
+
+
+def method_name (var1=value1, var2=value2)
+   expr..
+end
+
+
+
+###Code sample of Recursion:
+
+def factorial(n)
+    if n == 0
+        1
+    else
+        n * factorial(n-1)
+    end
+end
+ 
+puts factorial(5) # =&gt; 120
+
+
+
+###Code Sample demonstrating how to use arrays
+
+arr = [1, 2, 3, 4, 5, 6]
+arr[2]    #=> 3
+arr[100]  #=> nil
+arr[-3]   #=> 4
+arr[2, 3] #=> [3, 4, 5]
+arr[1..4] #=> [2, 3, 4, 5]
+arr[1..-3] #=> [2, 3, 4]
+
+
+
