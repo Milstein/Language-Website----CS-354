@@ -172,23 +172,36 @@ puts "fibonacciIterative(#{n}) = #{fibonacciIterative(n)}"</pre>
                     <div id="p5" class="pagedemo" style="display:none;">
 						<div class="page-header">
 							<h1>
-								//TODO: Title of the Program
+								sum.rb
 							</h1>
 						</div>
-                        <pre class="htmlCode">                                                                                                        
-                            #!/bin/ruby
-                            //TODO: Add your program code Here
+                        <pre class="htmlCode">
+#!/bin/ruby
+# Calculates the sum by adding a sum definition of the Array class
+# Brent Walter
+class Array
+  def sum
+    s = 0; each {|x| s = s + x}; s
+  end
+end
+sum = [1,5,3,7].sum
+puts sum
 		                </pre>
                     </div>
                     <div id="p6" class="pagedemo" style="display:none;">
 						<div class="page-header">
 							<h1>
-								//TODO: Title of the Program
+								sum-inject.rb
 							</h1>
 						</div>
-                        <pre class="htmlCode">                                                                            
-                            #!/bin/ruby
-                            //TODO: Add your program code Here
+                        <pre class="htmlCode">
+#!/bin/ruby
+# Calculates the sum by using the inject method
+# Brent Walter
+def sumArray(a)
+  a.inject(0) { |sum, value| sum + value }
+end
+puts sumArray([1,5,3,7])
 		                </pre>
                     </div>
                     <div id="p7" class="pagedemo" style="display:none;">
