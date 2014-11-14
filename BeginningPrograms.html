@@ -32,56 +32,142 @@
                 <div id="pagination">
                     <div id="p1" class="pagedemo _current" style="">
 						<div class="page-header">
-							<h1>
-								Hello World!
-							</h1>
+							<h1>Hello World!</h1>
 						</div>
                         <pre class="htmlCode">
-                            #!/bin/ruby
-                            class HelloWorld
-	                            def initialize(str)
-		                            @str = str
-	                            end
-	                            def sayHello
-		                            puts "#{@str}"
-	                            end
-                            end
-                            hello = HelloWorld.new("Hello, world!")
-                            hello.sayHello
-		                </pre>
+#!/bin/ruby
+class HelloWorld
+	def initialize(str)
+		@str = str
+	end
+	def sayHello
+		puts "#{@str}"
+	end
+end
+hello = HelloWorld.new("Hello, world!")
+hello.sayHello</pre>
                     </div>
                     <div id="p2" class="pagedemo" style="display:none;">
 						<div class="page-header">
-							<h1>
-								//TODO: Title of the Program
-							</h1>
+							<h1>Car.rb</h1>
 						</div>
-                        <pre class="htmlCode">                                                                          
-                            #!/bin/ruby
-                            //TODO: Add your program code Here
-		                </pre>
+                        <pre class="htmlCode">
+#!/bin/ruby
+## Creates two car objects and demonstrates the functionality of Car
+## objects
+##
+## Aaron Russell
+##
+# Represents a car
+class Car
+	def initialize(make, model, year, mileage)
+		@make = make
+		@model = model
+		@year = year
+		@mileage = mileage
+	end
+	def getAge
+		t = Time.new
+		return t.year - @year
+	end
+	def toString
+		return "#{@year} #{@make} #{@model} with #{@mileage} miles"
+	end
+end
+car1 = Car.new("Subaru", "Forester", 2000, 148000)
+car2 = Car.new("Jeep", "Wrangler", 2003, 100500)
+puts car1.toString
+puts "\t#{car1.getAge} years old"
+puts car2.toString
+puts "\t#{car2.getAge} years old"</pre>
                     </div>
                     <div id="p3" class="pagedemo" style="display:none;">
 						<div class="page-header">
 							<h1>
-								//TODO: Title of the Program
+								Prime.rb
 							</h1>
 						</div>
-                        <pre class="htmlCode">                                                                       
-                            #!/bin/ruby
-                            //TODO: Add your program code Here
-		                </pre>
+                        <pre class="htmlCode">
+#!/bin/ruby
+## Displays all of the prime numbers from 0 to n (inclusive)
+##
+## Aaron Russell
+##
+# Determines whether or not a number is prime
+def isPrime(n)
+	if n < 2
+		return false
+	end
+	if n == 2
+		return true
+	end
+	if n % 2 == 0
+		return false
+	end
+	i = 3
+	while i <= Math.sqrt(n) do
+		if (n % i == 0)
+			return false
+		end
+		i = i + 2
+	end
+	return true
+end
+# get user input
+puts "This program will find all prime numbers up to n (inclusive)."
+puts "n = ?"
+n = gets.to_i
+for i in 0..n do
+	if isPrime(i)
+		puts "#{i}"
+	end
+end</pre>
                     </div>
                     <div id="p4" class="pagedemo" style="display:none;">
 						<div class="page-header">
 							<h1>
-								//TODO: Title of the Program
+								Fibonacci.rb
 							</h1>
 						</div>
-                        <pre class="htmlCode">                                                                                                        
-                            #!/bin/ruby
-                            //TODO: Add your program code Here
-		                </pre>
+                        <pre class="htmlCode">
+#!/bin/ruby
+## Displays F(n) of the Fibonacci sequence, assuming F(0) = 0 and
+## F(1) = 1
+##
+## Aaron Russell
+##
+# Finds F(n) recursively
+def fibonacciRecursive(n)
+	if n <= 1
+		return n
+	else
+		return fibonacciRecursive(n - 1) + fibonacciRecursive(n - 2)
+	end
+end
+# Finds F(n) iteratively
+def fibonacciIterative(n)
+	if n <= 1
+		return n
+	else
+		x = 0
+		y = 1
+		count = 0
+		while count < n do
+			tmp = y
+			y = x + y
+			x = tmp
+			count = count + 1
+		end
+		return x
+	end
+end
+# get user input
+puts "This program will find F(n) of the Fibonacci sequence,"
+puts "assuming that F(0) = 0 and F(1) = 1."
+puts "n = ?"
+n = gets.to_i
+puts "fibonacciRecursive(#{n}) = #{fibonacciRecursive(n)}"
+puts "fibonacciIterative(#{n}) = #{fibonacciIterative(n)}"</pre>
                     </div>
                     <div id="p5" class="pagedemo" style="display:none;">
 						<div class="page-header">
