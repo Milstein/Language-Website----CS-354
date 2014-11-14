@@ -3,16 +3,10 @@
     <title>Beginner Examples</title>
     <link rel="stylesheet" type="text/css" href="../css/main.css">
     <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/jquery.snippet.css" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen" />
     <link href='http://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
     <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
-    <script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
-    <script type="text/javascript" src="../js/jquery.snippet.js"></script>
-    <link rel="stylesheet" type="text/css" href="../css/jquery.snippet.css" />
-    <script>
-        $(document).ready(function () {
-            $("pre.htmlCode").snippet("ruby", { style: "random", transparent: false, showNum: false, collapse:true, startCollapsed:false });
-        });
-    </script>
 </head>
 <body>
 
@@ -40,38 +34,83 @@
         </div>
         <div class="row">
             <div class="col-md-6">
-                <pre class="htmlCode">
-                        #!/bin/ruby
-                        class HelloWorld
-	                        def initialize(str)
-		                        @str = str
-	                        end
-	                        def sayHello
-		                        puts "#{@str}"
-	                        end
-                        end
-                        hello = HelloWorld.new("Hello, world!")
-                        hello.sayHello
-		        </pre>
+                <div id="pagination">
+                    <div id="p1" class="pagedemo _current" style="">
+                        <pre class="htmlCode">
+                            #!/bin/ruby
+                            class HelloWorld
+	                            def initialize(str)
+		                            @str = str
+	                            end
+	                            def sayHello
+		                            puts "#{@str}"
+	                            end
+                            end
+                            hello = HelloWorld.new("Hello, world!")
+                            hello.sayHello
+		                </pre>
+                    </div>
+                    <div id="p2" class="pagedemo" style="display:none;">
+                        <pre class="htmlCode">                                                                          
+                            #!/bin/ruby
+                            //TODO: Add your program code Here
+		                </pre>
+                    </div>
+                    <div id="p3" class="pagedemo" style="display:none;">
+                        <pre class="htmlCode">                                                                       
+                            #!/bin/ruby
+                            //TODO: Add your program code Here
+		                </pre>
+                    </div>
+                    <div id="p4" class="pagedemo" style="display:none;">
+                        <pre class="htmlCode">                                                                                                        
+                            #!/bin/ruby
+                            //TODO: Add your program code Here
+		                </pre>
+                    </div>
+                    <div id="p5" class="pagedemo" style="display:none;">
+                        <pre class="htmlCode">                                                                                                        
+                            #!/bin/ruby
+                            //TODO: Add your program code Here
+		                </pre>
+                    </div>
+                    <div id="p6" class="pagedemo" style="display:none;">
+                        <pre class="htmlCode">                                                                            
+                            #!/bin/ruby
+                            //TODO: Add your program code Here
+		                </pre>
+                    </div>
+                    <div id="p7" class="pagedemo" style="display:none;">
+                        <pre class="htmlCode">                                                                                                        
+                            #!/bin/ruby
+                            //TODO: Add your program code Here
+		                </pre>
+                    </div>
+                    <div id="p8" class="pagedemo" style="display:none;">
+                        <pre class="htmlCode">
+                            #!/bin/ruby   
+                            //TODO: Add your program code Here
+		                </pre>
+                    </div>
+                    <div id="p9" class="pagedemo" style="display:none;">
+                        <pre class="htmlCode">
+                            #!/bin/ruby
+                            //TODO: Add your program code Here
+		                </pre>
+                    </div>
+                    <div id="p10" class="pagedemo" style="display:none;">
+                        <pre class="htmlCode">
+                            #!/bin/ruby
+                            //TODO: Add your program code Here
+		                </pre>
+                    </div>
+                    <!-- Add your code if you need more div here -->
+                    <div id="paging">
+                    </div>
+                </div>
             </div>
         </div>
-
-        <p>
-            <li><a href="HelloWorld.html" target="_blank">Source Code to HelloWorld.rb</a></li>
-        </p>
     </div>
-    <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
-            <ul class="pagination">
-                <li class="active"><a href="hello-world.html">1</a></li>
-                <li><a href="MoreExamples.html">2</a></li>
-                <li><a href="MoreExamples.html">Next</a></li>
-            </ul>
-        </div>
-        <div class="col-md-4"></div>
-    </div>
-
 
     <div class="footer">
         <hr>
@@ -82,5 +121,31 @@
 
     </div>
 
+    <script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.snippet.js"></script>
+    <script type="text/javascript" src="../js/jquery.paginate.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("pre.htmlCode").snippet("ruby", { style: "random", transparent: false, showNum: false, collapse: true, startCollapsed: false });
+
+            $("#paging").paginate({
+                count: 50,
+                start: 1,
+                display: 15,
+                border: false,
+                border_color: '#428bca',
+                text_color: '#fff',
+                background_color: '#428bca',
+                border_hover_color: '#ccc',
+                text_hover_color: '#000',
+                background_hover_color: '#ddd',
+                images: false,
+                onChange: function (page) {
+                    $('._current', '#pagination').removeClass('_current').hide();
+                    $('#p' + page).addClass('_current').show();
+                }
+            });
+        });
+    </script>
 </body>
 </html>
