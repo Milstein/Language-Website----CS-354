@@ -216,38 +216,121 @@ puts sumArray([1,5,3,7])
 ## Jimmy Wang
 shad = ["Milson", "Aaron", "Brent", "Said", "Jimmy"]
 shad.pop
-puts shad
+print shad
 shad.push("Jimmy")
-puts shad
+print shad
 shad.shift
-puts shad
+print shad
 shad.unshift("Milson")
-puts shad
+print shad
+print "++++++++++++++++++\n"
+la = []
+la[3] = "Prolog"
+la[4] = "AWK"
+la[5] = "C#"
+print la.length
+print "\n"
+la.each {|i| print i, "\n"}
+print "++++++++++++++++++\n"
+la[1] = "Scheme"
+la.each {|i| print i, "\n"}
 		                </pre>
                     </div>
                     <div id="p8" class="pagedemo" style="display:none;">
 						<div class="page-header">
 							<h1>
-								//TODO: Title of the Program	
+								regxp.rb	
 							</h1>
 						</div>
                         <pre class="htmlCode">
-                            #!/bin/ruby
-                            //TODO: Add your program code Here
+#!/bin/ruby
+## Demonstrate usage of regular expressions
+## Jimmy Wang
+string1 = "We have a big big world"
+print "g.*g found", "\n" if string1 =~ /g.*g/
+print "i.*i found", "\n" if string1 =~ /i.*i/
+print "h.*h found", "\n" if string1 =~ /h.*h/
+print "===========================\n"
+string2 = "I will drill for a well in walla walla washington."
+target = Regexp.new(/w.ll/)
+matchword = target.match(string2)
+while matchword != nil
+	puts matchword[0]
+	string2 = matchword.post_match
+	matchword = target.match(string2)
+end
 		                </pre>
                     </div>
                     <div id="p9" class="pagedemo" style="display:none;">
 						<div class="page-header">
 							<h1>
-								//TODO: Title of the Program
+								hash.rb
 							</h1>
 						</div>
+                        <pre class="htmlCode">
+#!/bin/ruby
+## Demonstrate some hash functionalites
+## Jimmy Wang
+classrating = {}
+classrating["CS354"] = :Great
+classrating["CS471"] = :Perfect
+classrating["CS361"] = :Good
+classrating["CS497"] = :Perfect
+classrating["CS464"] = :Good
+classrating["CS410"] = :Good
+print classrating.length
+print "\n"
+print classrating["CS471"]
+print "\n"
+print classrating["CS410"]
+print "\n"
+counts = Hash.new(0)
+classrating.values.each { |rate| counts[rate] += 1 }
+print counts
+		                </pre>
+                    </div>
+                    <div id="p10" class="pagedemo" style="display:none;">
+                        <div class="page-header">
+                            <h1>
+                                string.rb
+                            </h1>
+                        </div>
+                        <pre class="htmlCode">
+#!/bin/ruby
+## Strings in ruby with fancy methods.
+## Jimmy Wang
+mystring=""
+shad = ["Milson", "Aaron", "Brent", "Said", "Jimmy"]
+shad.each {|i| mystring << i+" "}
+mystring.strip
+print mystring, "\n"
+shad.reverse
+print shad, "\n"
+shad.reverse!
+print shad, "\n"
+downshad = shad.to_s.downcase
+print downshad, "\n"
+mystring = "Shad " * 3
+print mystring, "\n"
+		                </pre>
+                    </div>
+                    <div id="p11" class="pagedemo" style="display:none;">
+                        <div class="page-header">
+                            <h1>
+                                //TODO: Title of the Program
+                            </h1>
+                        </div>
                         <pre class="htmlCode">
                             #!/bin/ruby
                             //TODO: Add your program code Here
 		                </pre>
                     </div>
-                    <div id="p10" class="pagedemo" style="display:none;">
+                    <div id="p12" class="pagedemo" style="display:none;">
+                        <div class="page-header">
+                            <h1>
+                                //TODO: Title of the Program
+                            </h1>
+                        </div>
                         <pre class="htmlCode">
                             #!/bin/ruby
                             //TODO: Add your program code Here
@@ -256,6 +339,13 @@ puts shad
                     <!-- Add your code if you need more div here -->
                     <div id="paging">
                     </div>
+                    <!-- Add your code if you need more div here -->
+                    <div id="paging">
+                    </div>
+                    <!-- Add your code if you need more div here -->
+                    <div id="paging">
+                    </div>
+
                 </div>
             </div>
         </div>
