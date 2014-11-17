@@ -207,12 +207,31 @@ puts sumArray([1,5,3,7])
                     <div id="p7" class="pagedemo" style="display:none;">
 						<div class="page-header">
 							<h1>
-								//TODO: Title of the Program
+								string.rb
 							</h1>
 						</div>
                         <pre class="htmlCode">                                                                                                        
-				#!/bin/ruby
-				// TODO: codes goes here
+#!/bin/ruby
+## Strings in ruby with fancy methods.
+
+## Jimmy Wang
+
+mystring=""
+shad = ["Milson", "Aaron", "Brent", "Said", "Jimmy"]
+shad.each {|i| mystring << i+" "}
+mystring.strip
+print mystring, "\n"
+
+shad.reverse
+print shad, "\n"
+shad.reverse!
+print shad, "\n"
+
+downshad = shad.to_s.downcase
+print downshad, "\n"
+
+mystring = "Shad " * 3
+print mystring, "\n"
 		                </pre>
                     </div>
                     <div id="p8" class="pagedemo" style="display:none;">
