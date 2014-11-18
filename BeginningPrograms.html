@@ -342,6 +342,230 @@ puts "the recursive-factorial calculation of #{n} is: #{recursiveFactorial(n)}"
 		                </pre>
                     </div>
                     <!-- Add your code if you need more div here -->
+                <div id="p12" class="pagedemo" style="display:none;">
+                        <div class="page-header">
+                            <h1>
+                                begin-end.rb
+                            </h1>
+                        </div>
+                        <pre class="htmlCode">
+#!/bin/ruby
+## BEGIN and END execution
+##
+## Milson Munakami
+## http://milstein.me
+puts "hello world"
+# this is a comment
+END{
+	puts " this is the end block"
+}
+BEGIN{
+	puts "this is the begin block"
+}
+		                </pre>
+                    </div>
+					<div id="p13" class="pagedemo" style="display:none;">
+                        <div class="page-header">
+                            <h1>
+                                class_variables.rb
+                            </h1>
+                        </div>
+                        <pre class="htmlCode">
+#!/usr/bin/env ruby
+## Class variable and constructor
+##
+## Milson Munakami
+## http://milstein.me
+class Student
+  @@count = 0
+  def initialize(id, name)
+    @id = id
+    @name = name
+  end
+  def student_count
+    @@count +=1
+    puts "Total student count is: #{@@count}"
+  end
+end
+stud1 = Student.new(1, "Milson Munakami")
+stud2 = Student.new(2, "Nisha Shrestha")
+stud3 = Student.new(2, "Nisha Shrestha")
+stud1.student_count
+stud2.student_count
+stud3.student_count
+		                </pre>
+                    </div>
+					<div id="p14" class="pagedemo" style="display:none;">
+                        <div class="page-header">
+                            <h1>
+                                file_handler.rb
+                            </h1>
+                        </div>
+                        <pre class="htmlCode">
+#!/usr/bin/env ruby
+## Class variable and constructor
+##
+## Milson Munakami
+## http://milstein.me
+newFile = File.new("file.txt","r+")
+if newFile
+  details = newFile.sysread(20)
+  puts details  
+else 
+  puts "You did some mistake or file is not in the same directory"
+end
+writeFile = File.open("file.txt", "w+")
+if writeFile
+  writeFile.syswrite("What to write!")
+  newFile = File.new("file.txt","r+")
+  if newFile
+    details = newFile.sysread(20)
+    puts details  
+  else 
+    puts "You did some mistake or file is not in the same directory"
+  end  
+end
+# File.rename("file.txt", "file_rename.txt", "w+")
+# File.delete(file.txt)
+		                </pre>
+                    </div>
+					<div id="p15" class="pagedemo" style="display:none;">
+                        <div class="page-header">
+                            <h1>
+                                loops.rb
+                            </h1>
+                        </div>
+                        <pre class="htmlCode">
+#!/bin/ruby
+## For and for each loop
+##
+## Milson Munakami
+## http://milstein.me
+for i in 0..2
+  puts "I am inside the loop number #{i}"
+end
+(0..8).each do |j|
+  puts "I am inside the loop number #{j}"
+end
+		                </pre>
+                    </div>
+					<div id="p16" class="pagedemo" style="display:none;">
+                        <div class="page-header">
+                            <h1>
+                                ruby_example.rb
+                            </h1>
+                        </div>
+                        <pre class="htmlCode">
+#!/usr/bin/env ruby
+## Demo general Ruby file structure with iteration
+##
+## Milson Munakami
+## http://milstein.me
+class MegaGreeter
+	attr_accessor :names
+	def initialize(names = "World")
+		@names = names
+	end
+	def say_hi
+		if @names.nil?
+			puts "..."
+		elsif @names.respond_to?("each")
+			@names.each do |name|			
+				puts "Hi #{name}"
+			end
+		else 
+			puts "Hi #{@names}"
+		end
+	end
+	def say_bye
+		if @names.nil?
+			puts "..."
+		elsif @names.respond_to?("join")
+			puts "#{@names.join(", ")} Come back soon"
+		else
+			puts "#{@names} come back soon"
+		end
+	end
+end
+if __FILE__ == $0
+	mg = MegaGreeter.new
+	mg.say_hi
+	mg.say_bye
+	mg.names="Milson"
+	mg.say_hi
+	mg.say_bye
+	mg.names = ["Aaron", "Zhenyu", "Milson", "Said", "Brent"]
+	mg.say_hi
+	mg.say_bye
+	mg.names=nil
+	mg.say_hi
+	mg.say_bye
+end
+		                </pre>
+                    </div>
+					<div id="p17" class="pagedemo" style="display:none;">
+                        <div class="page-header">
+                            <h1>
+                                variables.rb
+                            </h1>
+                        </div>
+                        <pre class="htmlCode">
+#!/usr/bin/env ruby
+## Global variable example
+##
+## Milson Munakami
+## http://milstein.me
+$global_var = 1
+class ClassOne
+  def print_global_var
+    puts "Global variable in class one #$global_var"
+  end
+end
+class ClassTwo
+  def print_global_var
+    puts "Global variable in class one #{$global_var}"
+  end
+end
+obj1 = ClassOne.new
+obj1.print_global_var
+obj2 = ClassOne.new
+obj2.print_global_var()
+		                </pre>
+                    </div>
+					<div id="p18" class="pagedemo" style="display:none;">
+                        <div class="page-header">
+                            <h1>
+                                yield.rb
+                            </h1>
+                        </div>
+                        <pre class="htmlCode">
+#!/usr/bin/env ruby
+## Yield to format Local variables
+##
+## Milson Munakami
+## http://milstein.me
+def Sample
+  puts "This is line 1"
+  yield
+  puts "This is line 2"
+  yield
+end
+def a_list(array, first = 1)
+  count =first
+  array.each do |item|
+    puts "#{yield count}. #{item}"
+    count = count.next
+  end
+end
+Sample {puts "This is block"}
+# a_list(["python", "ruby", "shell"], 1)
+# a_list(["python", "ruby", "shell"], 30)
+# a_list(["python", "ruby", "shell"], "a")
+# a_list(["python", "ruby", "shell"], "z")
+a_list(["abc", "def","ghk"],10){|i| "<#{i}>"}
+		                </pre>
+                    </div>
+
                     <div id="paging">
                     </div>
                 </div>
@@ -366,9 +590,9 @@ puts "the recursive-factorial calculation of #{n} is: #{recursiveFactorial(n)}"
             $("pre.htmlCode").snippet("ruby", { style: "random", transparent: false, showNum: true, collapse: true, startCollapsed: false });
 
             $("#paging").paginate({
-                count: 50,
+                count: 18,
                 start: 1,
-                display: 15,
+                display: 18,
                 border: false,
                 border_color: '#428bca',
                 text_color: '#fff',
