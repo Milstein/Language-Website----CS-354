@@ -30,7 +30,51 @@
         <div class="row">
             <div class="col-md-6">
                 <div id="pagination">
-                    <div id="p1" class="pagedemo _current" style="">
+                     <div id="p1" class="pagedemo" style="display:none;">
+                        <div class="page-header">
+                            <h1>
+                                Understanding Ruby Functions and Syntax
+                            </h1>
+                        </div>
+                        <pre class="htmlCode">
+#!/bin/ruby
+# Basics ode Examples
+
+# Functions
+# Syntax
+
+def functionname(variable)
+   return <value>
+end
+
+# Example
+
+def say_hello(name)
+   var = “Hello, ” + name
+   return var
+end
+
+# Calling a Function
+
+function param1, param2
+puts say_hello("alex")	# puts displays to console
+
+
+# Recursion Example:
+
+def countdown(n)
+  return if n.zero? # base case
+  puts n
+  countdown(n-1)    # getting closer to base case 
+end  
+
+# Array Declaration Example:
+
+array = [ '1', '2', '3' ] # simplest
+Array.new(3, &plus_1) # => [1, 2, 3] # alternative method
+		                </pre>
+                    </div>
+                    <div id="p2" class="pagedemo _current" style="">
 						<div class="page-header">
 							<h1>Hello World!</h1>
 						</div>
@@ -47,7 +91,7 @@ end
 hello = HelloWorld.new("Hello, world!")
 hello.sayHello</pre>
                     </div>
-                    <div id="p2" class="pagedemo" style="display:none;">
+                    <div id="p3" class="pagedemo" style="display:none;">
 						<div class="page-header">
 							<h1>Car.rb</h1>
 						</div>
@@ -81,7 +125,7 @@ puts "\t#{car1.getAge} years old"
 puts car2.toString
 puts "\t#{car2.getAge} years old"</pre>
                     </div>
-                    <div id="p3" class="pagedemo" style="display:none;">
+                    <div id="p4" class="pagedemo" style="display:none;">
 						<div class="page-header">
 							<h1>
 								Prime.rb
@@ -123,7 +167,7 @@ for i in 0..n do
 	end
 end</pre>
                     </div>
-                    <div id="p4" class="pagedemo" style="display:none;">
+                    <div id="p5" class="pagedemo" style="display:none;">
 						<div class="page-header">
 							<h1>
 								Fibonacci.rb
@@ -169,7 +213,7 @@ n = gets.to_i
 puts "fibonacciRecursive(#{n}) = #{fibonacciRecursive(n)}"
 puts "fibonacciIterative(#{n}) = #{fibonacciIterative(n)}"</pre>
                     </div>
-                    <div id="p5" class="pagedemo" style="display:none;">
+                    <div id="p6" class="pagedemo" style="display:none;">
 						<div class="page-header">
 							<h1>
 								sum.rb
@@ -180,7 +224,7 @@ puts "fibonacciIterative(#{n}) = #{fibonacciIterative(n)}"</pre>
 # Calculates the sum by adding a sum definition of the Array class
 # Brent Walter
 class Array
-  def sum
+  def sum                                                
     s = 0; each {|x| s = s + x}; s
   end
 end
@@ -188,7 +232,7 @@ sum = [1,5,3,7].sum
 puts sum
 		                </pre>
                     </div>
-                    <div id="p6" class="pagedemo" style="display:none;">
+                    <div id="p7" class="pagedemo" style="display:none;">
 						<div class="page-header">
 							<h1>
 								sum-inject.rb
@@ -204,7 +248,7 @@ end
 puts sumArray([1,5,3,7])
 		                </pre>
                     </div>
-                    <div id="p7" class="pagedemo" style="display:none;">
+                    <div id="p8" class="pagedemo" style="display:none;">
 						<div class="page-header">
 							<h1>
 								array.rb
@@ -236,7 +280,7 @@ la[1] = "Scheme"
 la.each {|i| print i, "\n"}
 		                </pre>
                     </div>
-                    <div id="p8" class="pagedemo" style="display:none;">
+                    <div id="p9" class="pagedemo" style="display:none;">
 						<div class="page-header">
 							<h1>
 								regxp.rb	
@@ -261,7 +305,7 @@ while matchword != nil
 end
 		                </pre>
                     </div>
-                    <div id="p9" class="pagedemo" style="display:none;">
+                    <div id="p10" class="pagedemo" style="display:none;">
 						<div class="page-header">
 							<h1>
 								hash.rb
@@ -289,7 +333,7 @@ classrating.values.each { |rate| counts[rate] += 1 }
 print counts
 		                </pre>
                     </div>
-                    <div id="p10" class="pagedemo" style="display:none;">
+                    <div id="p11" class="pagedemo" style="display:none;">
                         <div class="page-header">
                             <h1>
                                 string.rb
@@ -314,7 +358,7 @@ mystring = "Shad " * 3
 print mystring, "\n"
 		                </pre>
                     </div>
-                    <div id="p11" class="pagedemo" style="display:none;">
+                    <div id="p12" class="pagedemo" style="display:none;">
                         <div class="page-header">
                             <h1>
                                 recursive-factorial.rb
@@ -345,16 +389,15 @@ puts "the recursive-factorial calculation of #{n} is: #{recursiveFactorial(n)}"
 
 		                </pre>
                     </div>
-                    <div id="p12" class="pagedemo" style="display:none;">
+                    <div id="p13" class="pagedemo" style="display:none;">
                         <div class="page-header">
                             <h1>
-                                //TODO: Title of the Program
+                                Ruby Examples
                             </h1>
                         </div>
                         <pre class="htmlCode">
-                            #!/bin/ruby
-                            //TODO: Add your program code Here
-		                </pre>
+#!/bin/ruby
+   	                </pre>
                     </div>
                     <!-- Add your code if you need more div here -->
                     <div id="paging">
