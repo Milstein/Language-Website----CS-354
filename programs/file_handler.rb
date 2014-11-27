@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-## Class variable and constructor
+## File Handling
 ##
 ## Milson Munakami
 ## http://milstein.me
