@@ -11,8 +11,8 @@ class LinkedList
 		@tail = nil
 	end
 	
-	## Inserts an element into the list
-	def insert(element)
+	## Inserts an element at the end of the list
+	def insertRear(element)
 	
 		node = Node.new(element)
 		
@@ -29,6 +29,25 @@ class LinkedList
 		
 	end
 	
+	## Inserts an element at the beginning of the list 
+	def insertFront(element)
+	
+		node = Node.new(element)
+		
+		if @size == 0
+			@head = node
+			@tail = node
+		else
+			@head.setPrev(node)
+			node.setNext(@head)
+			@head = node
+		end
+		
+		@size += 1
+		
+	end
+	
+
 	## Generates a string representation of the list
 	def to_s
 	
