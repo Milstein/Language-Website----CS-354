@@ -78,6 +78,23 @@ class LinkedList
         
     end
 	
+	##def removeObject(element)
+	
+	## Searches for a node and returns it based finding the given element 	
+   	def search(element) 
+		if @size < 1
+        	return nil
+		end
+	   	curr = @head 
+		
+		while curr != nil do
+			if curr.getData == element
+				return curr
+			end
+			curr = curr.getNext
+    	end
+		return nil
+	end
 
 	## Generates a string representation of the list
 	def to_s
