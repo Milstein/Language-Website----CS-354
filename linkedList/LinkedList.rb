@@ -62,6 +62,22 @@ class LinkedList
        end
        
     end
+    
+    ## Removes an element from the end of the list
+    def removeFront()
+        
+        if @size > 1
+            node = @tail
+            @tail = node.getPrev()
+            @tail.setNext(nil)
+            @size -= 1
+        elsif @size == 1
+            @head = nil
+            @tail = nil
+            @size = 0
+        end
+        
+    end
 	
 
 	## Generates a string representation of the list
