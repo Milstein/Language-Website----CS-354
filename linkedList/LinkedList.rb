@@ -64,8 +64,7 @@ class LinkedList
     end
     
     ## Removes an element from the end of the list
-    def removeFront()
-        
+    def removeRear()
         if @size > 1
             node = @tail
             @tail = node.getPrev()
