@@ -442,59 +442,6 @@ end</pre>
 					<div id="p16" class="pagedemo" style="display:none;">
                         <div class="page-header">
                             <h1>
-                                ruby_example.rb
-                            </h1>
-                        </div>
-                        <pre class="htmlCode">
-#!/usr/bin/env ruby
-## Demo general Ruby file structure with iteration
-##
-## Milson Munakami
-## http://milstein.me
-class MegaGreeter
-	attr_accessor :names
-	def initialize(names = "World")
-		@names = names
-	end
-	def say_hi
-		if @names.nil?
-			puts "..."
-		elsif @names.respond_to?("each")
-			@names.each do |name|			
-				puts "Hi #{name}"
-			end
-		else 
-			puts "Hi #{@names}"
-		end
-	end
-	def say_bye
-		if @names.nil?
-			puts "..."
-		elsif @names.respond_to?("join")
-			puts "#{@names.join(", ")} Come back soon"
-		else
-			puts "#{@names} come back soon"
-		end
-	end
-end
-if __FILE__ == $0
-	mg = MegaGreeter.new
-	mg.say_hi
-	mg.say_bye
-	mg.names="Milson"
-	mg.say_hi
-	mg.say_bye
-	mg.names = ["Aaron", "Zhenyu", "Milson", "Said", "Brent"]
-	mg.say_hi
-	mg.say_bye
-	mg.names=nil
-	mg.say_hi
-	mg.say_bye
-end</pre>
-                    </div>
-					<div id="p17" class="pagedemo" style="display:none;">
-                        <div class="page-header">
-                            <h1>
                                 variables.rb
                             </h1>
                         </div>
@@ -520,7 +467,7 @@ obj1.print_global_var
 obj2 = ClassOne.new
 obj2.print_global_var()</pre>
                     </div>
-					<div id="p18" class="pagedemo" style="display:none;">
+					<div id="p17" class="pagedemo" style="display:none;">
                         <div class="page-header">
                             <h1>
                                 yield.rb
