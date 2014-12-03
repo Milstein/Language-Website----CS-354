@@ -11,24 +11,6 @@ class LinkedList
 		@tail = nil
 	end
 	
-	## Inserts an element at the end of the list
-	def insertRear(element)
-	
-		node = Node.new(element)
-		
-		if @size == 0
-			@head = node
-			@tail = node
-		else
-			@tail.setNext(node)
-			node.setPrev(@tail)
-			@tail = node
-		end
-		
-		@size += 1
-		
-	end
-	
 	## Inserts an element at the beginning of the list 
 	def insertFront(element)
 	
@@ -41,6 +23,24 @@ class LinkedList
 			@head.setPrev(node)
 			node.setNext(@head)
 			@head = node
+		end
+		
+		@size += 1
+		
+	end
+	
+	## Inserts an element at the end of the list
+	def insertRear(element)
+	
+		node = Node.new(element)
+		
+		if @size == 0
+			@head = node
+			@tail = node
+		else
+			@tail.setNext(node)
+			node.setPrev(@tail)
+			@tail = node
 		end
 		
 		@size += 1
@@ -78,6 +78,23 @@ class LinkedList
         
     end
 	
+	##def removeObject(element)
+	
+	## Searches for a node and returns it based finding the given element 	
+   	def search(element) 
+		if @size < 1
+        	return nil
+		end
+	   	curr = @head 
+		
+		while curr != nil do
+			if curr.getData == element
+				return curr
+			end
+			curr = curr.getNext
+    	end
+		return nil
+	end
 
 	## Generates a string representation of the list
 	def to_s
