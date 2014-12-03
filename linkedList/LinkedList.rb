@@ -78,8 +78,34 @@ class LinkedList
         
     end
 	
-	##def removeObject(element)
+	## Removes a node based on the element from the list 
+	def removeObject(element)
+		
+		#check if the size is 1
+		if @size == 1
+			@head = nil
+			@tail = nil
+			@size = 0
 	
+		#check if we are removing the head 
+		elsif @head.getData == element
+			@head = @head.getNext
+			@head.getPrev = nil
+			size -= 1
+		
+		#check if we are removing the tail
+		elsif @tail.getData == element
+			@tail = @tail.getNext
+			@tail.getPrev = nil
+			size -= 1
+
+		else
+            
+			size-= 1
+			
+
+
+
 	## Searches for a node and returns it based finding the given element 	
    	def search(element) 
 		if @size < 1
