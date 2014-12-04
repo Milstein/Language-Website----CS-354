@@ -148,13 +148,14 @@ class LinkedList
     def to_s
     
         curr = @head
-        str = ""
+        str = "null"
         
         while curr != nil do
+            str += "<-->"
             str += curr.getData.to_s
-            str += "\n"
             curr = curr.getNext
         end
+        str += "<-->null"
         
         return str
         
