@@ -3,6 +3,7 @@
 		<title>The Ruby Programming Language</title>
 		<link rel="stylesheet" type="text/css" href="css/main.css">
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		 <link rel="stylesheet" type="text/css" href="css/jquery.snippet.css" />
 		<link href='http://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
 		<link rel="icon" href="img/favicon.ico" type="image/x-icon" />
 	</head>
@@ -26,7 +27,58 @@
 		<li class ="curr"><a href="LW2.html">Demonstration Program</a></li>
 	</ul>		
 	</div>
- 
+     <div class="container-fluid" style="padding-top:10px;">        
+        <div class="row">
+            <div class="col-md-8">
+                <div id="pagination">
+                    <div id="p1" class="pagedemo _current" style="">
+						<div class="page-header">
+							<h1>Node.rb</h1>
+						</div>
+                        <pre class="htmlCode">
+## Represents a node within a linked list
+class Node
+
+	## Initializes the node
+	def initialize(data)
+		@data = data
+		@prev = nil
+		@next = nil
+	end
+	
+	## Gets the data stored by the node
+	def getData
+		return @data
+	end
+	
+	## Gets the node pointed to by prev
+	def getPrev
+		return @prev
+	end
+	
+	## Gets the node pointed to by next
+	def getNext
+		return @next
+	end
+	
+	## Sets the node's next pointer to another node
+	def setNext(node)
+		@next = node
+	end
+	
+	## Sets the node's previous pointer to another node
+	def setPrev(node)
+		@prev = node
+	end
+	
+end    </pre>
+		</div>
+ 		<div id="paging">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>           
 
  	<div class="footer">
 		
@@ -37,6 +89,31 @@
 		</div>
 		
 	</div>
+    <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.snippet.js"></script>
+    <script type="text/javascript" src="js/jquery.paginate.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("pre.htmlCode").snippet("ruby", { style: "random", transparent: false, showNum: true, collapse: true, startCollapsed: false });
 
+            $("#paging").paginate({
+                count: 17,
+                start: 1,
+                display: 17,
+                border: false,
+                border_color: '#428bca',
+                text_color: '#fff',
+                background_color: '#428bca',
+                border_hover_color: '#ccc',
+                text_hover_color: '#000',
+                background_hover_color: '#ddd',
+                images: false,
+                onChange: function (page) {
+                    $('._current', '#pagination').removeClass('_current').hide();
+                    $('#p' + page).addClass('_current').show();
+                }
+            });
+        });
+    </script>  
 	</body>
 </html>      
