@@ -47,79 +47,101 @@ class LinkedList
 		
 	end
     
-    ## Removes an element from the beginning of the list
+    ## Removes the element at the beginning of the list
     def removeFront()
        
        if @size > 1
-            node = @head
-            @head = node.getNext()
+            retVal = @head.getData
+            @head = @head.getNext()
             @head.setPrev(nil)
             @size -= 1
        elsif @size == 1
-            @head = nil
-            @tail = nil
-            @size = 0
+			retVal = @head.getData
+            clear
+       else
+			retVal = nil
        end
+       
+       return retVal
        
     end
     
-    ## Removes an element from the end of the list
+    ## Removes the element at the end of the list
     def removeRear()
+    
         if @size > 1
-            node = @tail
-            @tail = node.getPrev()
+            retVal = @tail.getData
+            @tail = @tail.getPrev()
             @tail.setNext(nil)
             @size -= 1
         elsif @size == 1
-            @head = nil
-            @tail = nil
-            @size = 0
+			retVal = @tail.getData
+            clear
+        else
+			retVal = nil
         end
+        
+        return retVal
         
     end
 	
-	## Removes a node based on the element from the list 
-	def removeObject(element)
+	## Removes the given element from the list 
+	def removeElement(element)
 		
-		#check if the size is 1
-		if @size == 1
-			@head = nil
-			@tail = nil
-			@size = 0
-	
-		#check if we are removing the head 
-		elsif @head.getData == element
-			@head = @head.getNext
-			@head.getPrev = nil
-			size -= 1
-		
-		#check if we are removing the tail
-		elsif @tail.getData == element
-			@tail = @tail.getNext
-			@tail.getPrev = nil
-			size -= 1
-
-		else
-            
-			size-= 1
-			
-
-
-
-	## Searches for a node and returns it based finding the given element 	
-   	def search(element) 
-		if @size < 1
-        	return nil
+		if @size == 0
+			return nil
 		end
-	   	curr = @head 
 		
-		while curr != nil do
+		## if the head contains the element
+		if @head.getData == element
+			return removeFront
+		end
+		
+		## if the tail contains the element
+		if @tail.getData == element
+			return removeRear
+		end
+		
+		## try to find the element in the list
+		curr = @head
+		while curr != nil
 			if curr.getData == element
-				return curr
+				curr.getPrev.setNext(curr.getNext)
+				curr.getNext.setPrev(curr.getPrev)
+				@size -= 1
+				return curr.getData
+			else
+				curr = curr.getNext
 			end
-			curr = curr.getNext
-    	end
+		end
+		
+		## if the element wasn't found, return nil
 		return nil
+		
+	end
+
+	## Searches the list for the given element
+   	def search(element)
+   	
+		curr = @head
+		while curr != nil
+			if curr.getData == element
+				return curr.getData
+			else
+				curr = curr.getNext
+			end
+		end
+		
+		## if the element wasn't found, return nil
+		return nil
+   	
+	end
+	
+	## Clears the list
+	def clear
+		@size = 0
+		@head = nil
+		@tail = nil
 	end
 
 	## Generates a string representation of the list
