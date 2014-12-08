@@ -148,15 +148,17 @@ class LinkedList
     ## Generates a string representation of the list
     def to_s
     
+        str = ""
+    
         curr = @head
-        str = "null"
         
         while curr != nil
-            str += "<-->"
             str += curr.getData.to_s
+            if curr != @tail
+                str += "<-->"
+            end
             curr = curr.getNext
         end
-        str += "<-->null"
         
         return str
         
