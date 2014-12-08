@@ -150,7 +150,7 @@ class LinkedList
         curr = @head
         str = "null"
         
-        while curr != nil do
+        while curr != nil
             str += "<-->"
             str += curr.getData.to_s
             curr = curr.getNext
