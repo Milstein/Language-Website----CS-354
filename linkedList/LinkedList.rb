@@ -92,24 +92,25 @@ class LinkedList
             return nil
         end
         
-        ## if the head contains the element
-        if @head.getData == element
-            return removeFront
-        end
-        
-        ## if the tail contains the element
-        if @tail.getData == element
-            return removeRear
-        end
-        
         ## try to find the element in the list
         curr = @head
         while curr != nil
             if curr.getData == element
+            
+                ## if the head contains the element
+                if curr == @head
+                    return removeFront
+                end
+                ## if the tail contains the element
+                if curr == @tail
+                    return removeRear
+                end
+                
                 curr.getPrev.setNext(curr.getNext)
                 curr.getNext.setPrev(curr.getPrev)
                 @size -= 1
                 return curr.getData
+                
             else
                 curr = curr.getNext
             end
