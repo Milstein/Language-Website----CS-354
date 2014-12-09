@@ -3,7 +3,7 @@
 ## author: Said Barrero
 ## note: change numbers below array to see different results of this algorithm
 
-	def selectionSort(array, p, r)
+	def selection-sort(array, p, r)
         largest=0;
  
         if p < r

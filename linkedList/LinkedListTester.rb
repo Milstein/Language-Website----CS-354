@@ -16,7 +16,7 @@ help += "\tsearch <element> | searches for element in list\n"
 help += "\tlist | prints the list\n"
 help += "\tclear | clears the list and starts fresh\n"
 help += "\thelp | displays commands\n"
-help += "\texit | exists prompt\n"
+help += "\texit | exits prompt\n"
 
 print "\n"
 print help

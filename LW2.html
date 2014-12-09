@@ -4,6 +4,7 @@
 		<link rel="stylesheet" type="text/css" href="css/main.css">
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 		 <link rel="stylesheet" type="text/css" href="css/jquery.snippet.css" />
+		 <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
 		<link href='http://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
 		<link rel="icon" href="img/favicon.ico" type="image/x-icon" />
 	</head>
@@ -32,10 +33,10 @@
 			<h1>A Linked List in Ruby</h1>
 	</div>
 	<p>
-	Our larger program using the Ruby programming language is a linked list.
+	Our larger program using the Ruby programming language is a linked list. The first page is Node.rb which is used in 
+	our LinkedList.rb as seen on the second page. You can test our linked list and its functions as seen on the third page. 
 	</p>	
 	
-     <div class="container-fluid" style="padding-top:10px;">        
         <div class="row">
             <div class="col-md-8">
                 <div id="pagination">
@@ -46,47 +47,276 @@
                         <pre class="htmlCode">
 ## Represents a node within a linked list
 class Node
-
 	## Initializes the node
 	def initialize(data)
 		@data = data
 		@prev = nil
 		@next = nil
 	end
-	
 	## Gets the data stored by the node
 	def getData
 		return @data
 	end
-	
 	## Gets the node pointed to by prev
 	def getPrev
 		return @prev
 	end
-	
 	## Gets the node pointed to by next
 	def getNext
 		return @next
 	end
-	
 	## Sets the node's next pointer to another node
 	def setNext(node)
 		@next = node
 	end
-	
 	## Sets the node's previous pointer to another node
 	def setPrev(node)
 		@prev = node
 	end
+end
+</pre>
+                    </div>
+                    <div id="p2" class="pagedemo" style="display:none;">
+						<div class="page-header">
+			    <h1>
+                                LinkedList.rb
+                            </h1>
+                        </div>
+                        <pre class="htmlCode">
+require './Node.rb'
+## Represents a doubly-linked, null-terminated list
+class LinkedList
+    ## Initializes the list
+    def initialize
+        @size = 0
+        @head = nil
+        @tail = nil
+    end
 	
-end    </pre>
-		</div>
- 		<div id="paging">
+    ## Inserts an element at the beginning of the list 
+    def insertFront(element)
+        node = Node.new(element)
+        if @size == 0
+            @head = node
+            @tail = node
+        else
+            @head.setPrev(node)
+            node.setNext(@head)
+            @head = node
+        end
+        
+        @size += 1
+        
+    end
+    
+    ## Inserts an element at the end of the list
+    def insertRear(element)
+    
+        node = Node.new(element)
+        
+        if @size == 0
+            @head = node
+            @tail = node
+        else
+            @tail.setNext(node)
+            node.setPrev(@tail)
+            @tail = node
+        end
+        
+        @size += 1
+        
+    end
+    
+    ## Removes the element at the beginning of the list
+    def removeFront()
+    
+        if @size > 1
+            retVal = @head.getData
+            @head = @head.getNext()
+            @head.setPrev(nil)
+            @size -= 1
+        elsif @size == 1
+            retVal = @head.getData
+            clear
+        else
+            retVal = nil
+        end
+        
+        return retVal
+        
+    end
+    
+    ## Removes the element at the end of the list
+    def removeRear()
+    
+        if @size > 1
+            retVal = @tail.getData
+            @tail = @tail.getPrev()
+            @tail.setNext(nil)
+            @size -= 1
+        elsif @size == 1
+            retVal = @tail.getData
+            clear
+        else
+            retVal = nil
+        end
+        
+        return retVal
+        
+    end
+    
+    ## Removes the given element from the list 
+    def removeElement(element)
+    
+        if @size == 0
+            return nil
+        end
+        
+        ## try to find the element in the list
+        curr = @head
+        while curr != nil
+            if curr.getData == element
+            
+                ## if the head contains the element
+                if curr == @head
+                    return removeFront
+                end
+                ## if the tail contains the element
+                if curr == @tail
+                    return removeRear
+                end
+                
+                curr.getPrev.setNext(curr.getNext)
+                curr.getNext.setPrev(curr.getPrev)
+                @size -= 1
+                return curr.getData
+                
+            else
+                curr = curr.getNext
+            end
+        end
+        
+        ## if the element wasn't found, return nil
+        return nil
+        
+    end
+    
+    ## Searches the list for the given element
+    def search(element)
+    
+        curr = @head
+        while curr != nil
+            if curr.getData == element
+                return curr.getData
+            else
+                curr = curr.getNext
+            end
+        end
+        
+        ## if the element wasn't found, return nil
+        return nil
+        
+    end
+    
+    ## Clears the list
+    def clear
+        @size = 0
+        @head = nil
+        @tail = nil
+    end
+    
+    ## Generates a string representation of the list
+    def to_s
+    
+        str = ""
+    
+        curr = @head
+        
+        while curr != nil
+            str += curr.getData.to_s
+            if curr != @tail
+                str += "<-->"
+            end
+            curr = curr.getNext
+        end
+        
+        return str
+        
+    end
+    
+end</pre>
+                    </div>
+                    <div id="p3" class="pagedemo" style="display:none;">
+						<div class="page-header">
+			    <h1>
+					LinkedListTester.rb
+				</h1>
+			</div>
+			<pre class="htmlCode">						
+require './LinkedList.rb'
+print "**********  LinkedListTester  **********\n"
+## Create List
+list = LinkedList.new()
+help = "Commands:\n"
+help += "\tinsertFront <element> | inserts element at front of list\n"
+help += "\tinsertRear <element> | inserts element at rear of list\n"
+help += "\tremoveFront | removes element at front of list\n"
+help += "\tremoveRear | removes element at front of list\n"
+help += "\tremoveElement <element> | removes the element from the list\n"
+help += "\tsearch <element> | searches for element in list\n"
+help += "\tlist | prints the list\n"
+help += "\tclear | clears the list and starts fresh\n"
+help += "\thelp | displays commands\n"
+help += "\texit | exits prompt\n"
+print "\n"
+print help
+prompt = "> "
+puts "\n"
+print prompt
+while user_input = gets.chomp
+	case user_input
+	when /insertFront/
+    	list.insertFront(user_input.partition('insertFront ').last)
+    	print prompt
+	when /insertRear/
+    	list.insertRear(user_input.partition('insertRear ').last)
+    	print prompt
+	when /removeFront/
+    	list.removeFront()
+    	print prompt
+    when /removeRear/
+    	list.removeRear()
+    	print prompt
+    when /removeElement/
+    	list.removeElement(user_input.partition('removeElement ').last)
+    	print prompt
+	when /search/
+    	puts list.search(user_input.partition('search ').last)
+    	print prompt
+    when "clear"
+    	list = LinkedList.new()
+    	puts "list cleared\n"
+    	print prompt
+	when "help"
+    	puts help
+    	print prompt
+    when "list"
+    	puts list.to_s
+    	print prompt
+    when "exit"
+    	print "**********  LinkedListTester Finished  **********\n"
+    	break
+	else
+    	puts "Invalid entry - type help for commands"
+    	print prompt # print the prompt, so the user knows to re-enter input
+  	end
+end</pre>
+                    </div>	
+ 			    <div id="paging">
                     </div>
                 </div>
             </div>
-        </div>
-    </div>           
+        </div> 
 
  	<div class="footer">
 		
@@ -106,9 +336,9 @@ end    </pre>
             $("pre.htmlCode").snippet("ruby", { style: "random", transparent: false, showNum: true, collapse: true, startCollapsed: false });
 
             $("#paging").paginate({
-                count: 17,
+                count: 3,
                 start: 1,
-                display: 17,
+                display: 3,
                 border: false,
                 border_color: '#428bca',
                 text_color: '#fff',

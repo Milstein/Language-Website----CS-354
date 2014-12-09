@@ -506,22 +506,86 @@ end</pre>
 #!/bin/ruby
 ## Displays the factorial of the given number
 ##
-## Said Barrero
+## Said Barrero						
 #creates the recursive factorial function
 def recursiveFactorial(n)
-if n == 0
-return 1
-else
-return n*recursiveFactorial(n-1)
-end
+	if n == 0
+		return 1
+	else
+		return n*recursiveFactorial(n-1)
+	end
 end
 # get the user input
 puts "This program will find the factorial of the given n"
-puts "Value of n = "
+puts "Value of n = " 
 n = gets.to_i
 puts "the recursive-factorial calculation of #{n} is: #{recursiveFactorial(n)}"</pre>
                     </div>
-                    
+				<div id="p18" class="pagedemo" style="display:none;">
+		  <div class="page-header">
+		      <h1>
+			selection-sort.rb
+			</h1>
+			</div>
+                        <pre class="htmlCode">
+#!/bin/ruby
+#
+## author: Said Barrero
+## note: change numbers below array to see different results of this algorithm
+#see selection-sort.rb in programs directory
+	def selection-sort(array, p, r)
+        largest=0;
+        if p < r
+			largest = p
+       		for i in p+1..r do
+       			if array[i] >= array[largest]
+            		largest = i
+				end
+       		end
+      	temp = array[r]
+        array[r] = array[largest]
+      	array[largest] = temp
+        selectionSort(array,p,r - 1)
+		end
+    end
+puts 'This is a simple selection sort example'
+    numbers = [1,5,3,2,6]
+    p = 0
+    r = numbers.size - 1
+selectionSort(numbers, p, r)
+puts numbers
+</pre>
+                    </div> 
+			<div id="p19" class="pagedemo" style="display:none;">
+			<div class="page-header">
+		      <h1>
+			wf.rb - word frequency
+			</h1>
+			</div>
+                        <pre class="htmlCode">
+#!/bin/ruby
+#
+# author: Said Barrero
+# author: Said Barrero
+# usage: ruby wf.rb < <textfile> < | sort -n -k2 >
+#Declare a hash to store the number of word counts. If there is a non-existant entry in the
+#hash that is referenced, it will automatically have a default value of 0.
+word_counts = Hash.new(0)
+# ARGF is an IO object that will contain the concatenation of all of the files
+# listed in ARGV, or STDIN if ARGV is empty.
+while line = ARGF.gets do
+	  line.downcase!     # make the entire line lowercase
+      line.chomp!        # remove the trailing newline
+	# Split the line into words and increment their frequency counts in the hash. 
+	for word in line.split(/[-,.;:'"&!?_ \t\n]+/)
+        word_counts[word] += 1
+    end
+end
+# Print out each word and its frequency in a list sorted by frequency count.
+for word,count in word_counts.sort{|a,b| a[1] <=> b[1]}
+    printf("%-20s %d\n", word, count)
+end</pre>
+                    </div>  			    
 		    <div id="paging">
                     </div>
                 </div>
@@ -545,9 +609,9 @@ puts "the recursive-factorial calculation of #{n} is: #{recursiveFactorial(n)}"<
             $("pre.htmlCode").snippet("ruby", { style: "random", transparent: false, showNum: true, collapse: true, startCollapsed: false });
 
             $("#paging").paginate({
-                count: 17,
+                count: 19,
                 start: 1,
-                display: 17,
+                display: 19,
                 border: false,
                 border_color: '#428bca',
                 text_color: '#fff',
