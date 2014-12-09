@@ -53,7 +53,10 @@ class HelloWorld
 	end
 end
 hello = HelloWorld.new("Hello, world!")
-hello.sayHello</pre>
+hello.sayHello
+
+## Output:
+#Hello, world!</pre>
                     </div>
                     <div id="p2" class="pagedemo" style="display:none;">
 						<div class="page-header">
@@ -70,11 +73,17 @@ hello.sayHello</pre>
 puts "hello world"
 # this is a comment
 END{
-	puts " this is the end block"
+	puts "this is the end block"
 }
 BEGIN{
 	puts "this is the begin block"
-}</pre>
+}
+
+## Output:
+#this is the begin block
+#hello world
+#this is the end block
+</pre>
                     </div>
 						
 						
@@ -96,7 +105,21 @@ for i in 0..2
 end
 (0..8).each do |j|
   puts "I am inside the loop number #{j}"
-end</pre>
+end
+
+## Output:
+#I am inside the loop number 0
+#I am inside the loop number 1
+#I am inside the loop number 2
+#I am inside the loop number 0
+#I am inside the loop number 1
+#I am inside the loop number 2
+#I am inside the loop number 3
+#I am inside the loop number 4
+#I am inside the loop number 5
+#I am inside the loop number 6
+#I am inside the loop number 7
+#I am inside the loop number 8</pre>
                     </div>
                     
                     <div id="p4" class="pagedemo" style="display:none;">
@@ -125,7 +148,11 @@ end
 obj1 = ClassOne.new
 obj1.print_global_var
 obj2 = ClassOne.new
-obj2.print_global_var()</pre>
+obj2.print_global_var()
+
+## Output:
+#Global variable in class one 1
+#Global variable in class one 1</pre>
                     </div>
 								
                     <div id="p5" class="pagedemo" style="display:none;">
@@ -152,11 +179,17 @@ class Student
   end
 end
 stud1 = Student.new(1, "Milson Munakami")
-stud2 = Student.new(2, "Nisha Shrestha")
-stud3 = Student.new(2, "Nisha Shrestha")
+stud2 = Student.new(2, "Aaron Russell")
+stud3 = Student.new(2, "Zhenyu Wang")
 stud1.student_count
 stud2.student_count
-stud3.student_count</pre>
+stud3.student_count
+
+## Output:
+#Total student count is: 1
+#Total student count is: 2
+#Total student count is: 3
+</pre>
                     </div>
 						
 
@@ -190,7 +223,17 @@ Sample {puts "This is block"}
 # a_list(["python", "ruby", "shell"], 30)
 # a_list(["python", "ruby", "shell"], "a")
 # a_list(["python", "ruby", "shell"], "z")
-a_list(["abc", "def","ghk"],10){|i| "<#{i}>"}</pre>
+a_list(["abc", "def","ghk"],10){|i| "<#{i}>"}
+
+## Output:
+#This is line 1
+#This is block
+#This is line 2
+#This is block
+#<10>. abc
+#<11>. def
+#<12>. ghk
+</pre>
                     </div>
                     
 			<div id="p7" class="pagedemo" style="display:none;">
@@ -224,7 +267,10 @@ if writeFile
   end  
 end
 # File.rename("file.txt", "file_rename.txt", "w+")
-# File.delete(file.txt)</pre>
+# File.delete(file.txt)
+
+## Output:
+#Read the content in Read mode and then print it to the console.</pre>
                     </div>
 
                     

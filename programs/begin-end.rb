@@ -9,7 +9,7 @@ puts "hello world"
 # this is a comment
 
 END{
-	puts " this is the end block"
+	puts "this is the end block"
 }
 
 BEGIN{
